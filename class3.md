@@ -173,9 +173,9 @@ P(not cache) = 0.1
 P(main memory) = 0.6
 P(not main memory) = 0.4
 
-p(cache)*time + p(not cache*main memory)*time + p(not cache *not main memory * disk)*time
+p(cache)\*time + p(not cache\*main memory)\*time + p(not cache \*not main memory \* disk)\*time
 =
-(0.9*20) + (0.1*0.6)(60+20) + (0.1*0.4*1)(60+20+12)
+(0.9\*20) + (0.1\*0.6)(60+20) + (0.1\*0.4\*1)(60+20+12)
 
 ### Q.3.
 Consider a computer system with the following memory access time specifications:                 
@@ -189,3 +189,120 @@ cache <- main
 Effective access time = 
 (Hit ration of M1 * T1)
 \+ (Hit ratio of M2 * T2)
+
+110 = H \*(100) + (1-H)\*(1200+100)
+H = 0.9916
+
+### Q.4
+Consider a hypothetical microprocessor generating a 16-bit address and having a 16-bit data bus.
++ a) What is the maximum memory address space that the processor can access directly if it is connected to a 16-bit memory?
++ b) What is the maximum memory address space that the processor can access directly if it is connected 
+to an 8-bit memory?
++ c) What is the maximum no. of memory locations that the processor can access?
+
+#### A.4
+Addresses bus = 16 bits and Data bus = 16 bits
+
+| Address | Data/Instructions |
+| ------ | ------ |
+|   | 16 bits |
+|   |   |
+|   |   |
+
+Since it is 16 bit, then there are 2^16 number of different addresses, that means we have 2^16 different locations in memory
+
+1 byte = 8 bits = 2^3 bits
+1 KB = 1024 bytes
+1 MB = 1024 KB
+1 Kb = 1024 bits
+1 Mb = 1024 Kb
+
+a) Maximum memory address space 
+= 16 \* 2^16 bits
+= 2^4 \* 2^16 bits
+= 2^20 bits
+= 2^20/2^3 bits
+= 2^17 bytes
+= 2^17/2^10
+= 128 KB
+
+b) Maximum memory address space = 8\*2^16=2^3=2^16
+= 8\*2^16
+= 2^3bytes 
+= 2^16 bytes 
+= 2^16/2^10 KB 
+= 64 KB
+
+c) Since it is a 16 bit address, we have 2^16 different addresses, that means we have 2^16 different locations in memory which can be accessed.
+
+### Q.5. 
+Consider a 32-bit microprocessor, with a 16-bit external data bus, driven by an 8-MHz input clock. 
+Assume that this microprocessor has a bus cycle whose minimum duration equals 4-input clock cycles. 
+What is the maximum data transfer rate (in bytes/sec) across the bus that this microprocessor can sustain?
+
+#### A5
+Data bus = 16 bits
+Input clock = 8 MHz = 8\*10^6 Hz
+1 Bus cycle = 4 clock cycles
+
+Frequency = 1/T
+T = 1/frequency
+T = 1/8\*10^6 Hz
+T = 0.125\*10^-6 seconds
+
+1 Bus cycle = 4 \* input clock cycles
+            = 4\*0.125\*10^-6 seconds 
+            = 0.5\*10^-6 seconds
+
+Maximum Data Transfer Rate  = Amount of datatransferred/time taken
+                            = 16 bits/0.5\*10^-6 seconds
+                            = 2 bytes/0.5\*10^-6 seconds
+                            = 4\*10^6 bytes/second
+
+### Q.6.
+Consider a memory system with the following parameters:
+Cc=0.01 cents/bit
+Cm=0.001 cents/bit
+a) What is the cost of 1 Mbyte of main memory?
+b) What is the cost of 1 Mbyte of cache memory?
+
+#### A6
+1 Mbyte = 1024 KB
+        = 1024 \* 1024 Bytes
+        = 1024 \* 1024 \* 8 8388608 bits
+
+Cost of 1 MB of main memory = 8388608\*0.001=8388.608 cents
+
+### Q.7.
+A multiprocessor with 8 processors has 20 attached tape drives. There is a large no. of jobs submitted to the system that each require a maximum of 4 tape drives to complete execution. Assume each job starts running with only 3 tape drives for a long period before requiring the 4th tape drive for a short  period towards the end of its operation. Also assume an endless supply of such jobs.
+
+a) Assume the scheduler in the OS will not start a job unless there are 4 tape drives available. When a job is started, 4 drives are assigned immediately and are not released until the job finishes. What is the maximum no. of jobs that can be progress at once? What are the maximum and minimum no. of tape drives that may be left idle as a result of this policy?
+
+b) Suggest an alternative policy to improve tape drive utilization. What is the maximum no. of jobs that can be in progress at once? What are the bounds on the no. of tape drives that are idle?
+
+#### A7
+a)  tape drives = 20
+    jops = 4 tape drive
+    job start = 3 tape drives
+    job end = 4 tape drives
+    max jobs = 20/4 = 5 jobs
+    Maximum no of tapes idle = 5
+    Minimum no of tapes idle = 0 
+
+b)  Only require 3 tapes per job to start a job and then set a priority to free tapes drives to finish jobs that are ready to end.
+
+Maximum No. of jobs = 20/3 = 6 jobs
+Maximum No of tape drives idle = 2
+Minimum no. of tape drives idle = 0
+
+### Q.8.
+A DMA module reads a record from a file and gives it to the processor in 15 microseconds. The processor on an average takes 1 microsecond to execute 100 machine instructions per record and then takes another 15 microseconds to write the record back to the file. Assume that the processor is idle when the 
+DMA module reads and writes a record to/from a file. Calculate the percentage of CPU utilization. Has the CPU been utilized efficiently?
+
+reading = 15 microseconds
+writing = 15 microseconds
+execution = 1 microsecond
+
+utilization = \[1/(15+1+15)\]\*100
+            = 3.2258% of CPU utilization
+The CPU has to have a more than 90% utilization to be efficient. Instead it is idle more than 96% of the time.
