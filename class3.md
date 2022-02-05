@@ -5,6 +5,8 @@
 each hexadecimal has a 4 digit binary equivalent number
 - data is first brought to mbr and then copied to other registers
 
+=
+
 ### Problem 1
 Illustrate a partial program execution mechanism showing the contents of memory and processor registers at each step in a hexadecimal format. The program fragment should add the contents of the memory words which are present at address 940 and 941 and obly the final result has to be stored back to memory. Show all the instruction cycles in detail each consisting of a fetch stage and an execute stage. Note that all the values are in hexadecimal format.
 
