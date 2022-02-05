@@ -5,8 +5,7 @@
 each hexadecimal has a 4 digit binary equivalent number
 - data is first brought to mbr and then copied to other registers
 
-=
-
+---
 ### Problem 1
 Illustrate a partial program execution mechanism showing the contents of memory and processor registers at each step in a hexadecimal format. The program fragment should add the contents of the memory words which are present at address 940 and 941 and obly the final result has to be stored back to memory. Show all the instruction cycles in detail each consisting of a fetch stage and an execute stage. Note that all the values are in hexadecimal format.
 
@@ -140,10 +139,7 @@ The list of opcodes is as follows:
 - not multiplaction and division
 - should be able to solve problem in 10 minutes
 
-
-
-
-
+---
 ### Q1
 Suppose the processor has access to 2 levels of memory. Level 1 contains 1000 bytes of memory and has an  average  access  time  of  0.1 microseconds,  level  2  has  an  average access time  of  1  microsecond  and contains 100,000 bytes. Assume that if a byte to be accessed is in level 1, then the processor accesses it directly If it is in level 2, the byte is first transferred to level 1 and then accessed by the processor. Ignore the time required for the processor to determine whether the byte is in level 1 or level 2. 
 If 95% of the memory accesses are found in the level 1, calculate the average effective time of the system to access a byte.
@@ -163,6 +159,7 @@ Average access time =
 1 second = 1000 miliseconds
 1 milisecond = 1000 microseconds
 
+---
 ### Q2
 A computer has a cache, main memory and a disk used for virtual memory. If a referenced word is in the cache, 20 ns are required to access it. If it is main memory but not in cache, 60 ns are needed to load it into the cache, then the reference is started again. If the word is not in main memory, 12 ns are required to fetch the word from disk, followed by 60 ns to copy it to the cache, then the reference is started again. 
 Also, if the word is not found in the cache or main memory then it has to compulsorily be present in the disk. The cache hit ratio is 0.9 and the main memory hit ratio is 0.6. What is the average time in ns required to access a referenced word on this system.
@@ -179,6 +176,7 @@ p(cache)\*time + p(not cache\*main memory)\*time + p(not cache \*not main memory
 
 (0.9\*20) + (0.1\*0.6)(60+20) + (0.1\*0.4\*1)(60+20+12)
 
+---
 ### Q3
 Consider a computer system with the following memory access time specifications:                 
 Tc = 100 ns
@@ -186,6 +184,7 @@ Tm = 1200 ns
 where Tc and Tm are the cache memory and main memory access times respectively.
 If the effective access time is 110 ns, what is the hit ratio ‘H’?
 
+---
 #### A3
 cache <- main
 Effective access time = 
@@ -195,6 +194,7 @@ Effective access time =
 110 = H \*(100) + (1-H)\*(1200+100)
 H = 0.9916
 
+---
 ### Q4
 Consider a hypothetical microprocessor generating a 16-bit address and having a 16-bit data bus.
 a) What is the maximum memory address space that the processor can access directly if it is connected to a 16-bit memory?
@@ -237,6 +237,7 @@ b) Maximum memory address space = 8\*2^16=2^3=2^16
 
 c) Since it is a 16 bit address, we have 2^16 different addresses, that means we have 2^16 different locations in memory which can be accessed.
 
+---
 ### Q5
 Consider a 32-bit microprocessor, with a 16-bit external data bus, driven by an 8-MHz input clock. 
 Assume that this microprocessor has a bus cycle whose minimum duration equals 4-input clock cycles. 
@@ -261,6 +262,7 @@ Maximum Data Transfer Rate  = Amount of datatransferred/time taken
                             = 2 bytes/0.5\*10^-6 seconds
                             = 4\*10^6 bytes/second
 
+---
 ### Q6
 Consider a memory system with the following parameters:
 Cc=0.01 cents/bit
@@ -275,6 +277,7 @@ b) What is the cost of 1 Mbyte of cache memory?
 
 Cost of 1 MB of main memory = 8388608\*0.001=8388.608 cents
 
+---
 ### Q7
 A multiprocessor with 8 processors has 20 attached tape drives. There is a large no. of jobs submitted to the system that each require a maximum of 4 tape drives to complete execution. Assume each job starts running with only 3 tape drives for a long period before requiring the 4th tape drive for a short  period towards the end of its operation. Also assume an endless supply of such jobs.
 
@@ -297,6 +300,7 @@ Maximum No. of jobs = 20/3 = 6 jobs
 Maximum No of tape drives idle = 2
 Minimum no. of tape drives idle = 0
 
+---
 ### Q8
 A DMA module reads a record from a file and gives it to the processor in 15 microseconds. The processor on an average takes 1 microsecond to execute 100 machine instructions per record and then takes another 15 microseconds to write the record back to the file. Assume that the processor is idle when the 
 DMA module reads and writes a record to/from a file. Calculate the percentage of CPU utilization. Has the CPU been utilized efficiently?
